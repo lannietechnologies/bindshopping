@@ -85,7 +85,7 @@
                     @if($web_config['business_mode'] == 'multi' && $web_config['seller_registration'])
                         <li class="d-none d-xl-block">
                             <a href="{{route('shop.apply')}}" class="d-flex">
-                                <div class="fz-16 text-capitalize">{{ translate('become_a_vendor')}}</div>
+                                <div class="fz-16 text-capitalize">{{ translate('Sell on Bind Shopping')}}</div>
                             </a>
                         </li>
                     @endif
