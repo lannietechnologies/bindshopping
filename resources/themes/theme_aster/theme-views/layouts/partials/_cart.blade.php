@@ -22,7 +22,7 @@
                         <div class="avatar avatar-xxl position-relative overflow-hidden rounded">
                             <img loading="lazy" alt="Product"
                                 src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$cartItem['thumbnail'], type: 'product') }}"
-                                class="img-fit dark-support rounded img-fluid overflow-hidden {{ $product->status == 0?'blur-section':'' }}">
+                                class="img-fit dark-support rounded img-fluid overflow-hidden  '' }}">
                             @if ($product->status == 0)
                                 <span class="temporary-closed position-absolute text-center p-2">
                             <span class="text-capitalize">{{ translate('not_available') }}</span>
