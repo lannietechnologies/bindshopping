@@ -63,8 +63,8 @@ class BannerController extends BaseController
         $shops = $this->shopRepo->getListWithScope(scope:'active', dataLimit: 'all');
         $brands = $this->brandRepo->getListWhere(dataLimit: 'all');
         $products = $this->productRepo->getListWithScope(scope:'active', dataLimit: 'all');
-        $isReactActive = getWebConfig(name: 'react_setup')['status'];
-        return view(Banner::LIST[VIEW],  compact('banners', 'categories','shops', 'brands', 'products', 'isReactActive', 'bannerTypes'));
+        //$isReactActive = getWebConfig(name: 'react_setup')['status'];
+        return view(Banner::LIST[VIEW],  compact('banners', 'categories','shops', 'brands', 'products', 'bannerTypes'));
     }
 
     public function add(BannerAddRequest $request): RedirectResponse
