@@ -43,9 +43,9 @@
                 @endforeach
             </div>
         </div>
-
+   
         <h4 class="text-center py-3 fw-6 font-weight--600">
-            {{ translate('amount').' '.':' }} {{ Helpers::currency_converter($total_offline_amount) }}
+            {{ translate('amount').' '.':' }} {{ Helpers::currency_converter($total_offline_amount) }} Or $USD{{ Helpers::currency_converter2($total_offline_amount) }}
         </h4>
 
         <div class="row">

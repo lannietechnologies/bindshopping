@@ -11,7 +11,7 @@ class Convert
     public static function usd($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencys') {
             $default = Currency::find(Helpers::get_business_settings('system_default_currency'));
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $default['exchange_rate'] / $usd;
@@ -26,7 +26,7 @@ class Convert
     public static function default($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencys') {
             $default = Currency::find(Helpers::get_business_settings('system_default_currency'));
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $default['exchange_rate'] / $usd;
@@ -40,11 +40,11 @@ class Convert
     public static function bdtTousd($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
-            $bdt = Currency::where(['code' => 'BDT'])->first()->exchange_rate ?? 1;
+        if ($currency_model == 'multi_currencys') {
+            $bdt = Currency::where(['code' => 'ZAR2'])->first()->exchange_rate ?? 1;
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $bdt / $usd;
-            $value = floatval($amount) / floatval($rate);
+            $value = floatval($amount) * floatval($usd);
         } else {
             $value = floatval($amount);
         }
@@ -55,7 +55,7 @@ class Convert
     public static function usdTobdt($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencys') {
             $bdt = Currency::where(['code' => 'BDT'])->first()->exchange_rate ?? 1;
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $usd / $bdt;
@@ -70,7 +70,7 @@ class Convert
     public static function usdTomyr($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencys') {
             $myr = Currency::where(['code' => 'MYR'])->first()->exchange_rate ?? 1;
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $usd / $myr;
@@ -84,6 +84,7 @@ class Convert
 
     public static function usdTozar($amount)
     {
+        
         $currency_model = Helpers::get_business_settings('currency_model');
         if ($currency_model == 'multi_currency') {
             $zar = Currency::where(['code' => 'ZAR'])->first()->exchange_rate ?? 1;
@@ -94,13 +95,13 @@ class Convert
             $value = floatval($amount);
         }
 
-        return $value;
+        return floatval($amount);
     }
 
     public static function usdToinr($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencys') {
             $inr = Currency::where(['code' => 'INR'])->first()->exchange_rate ?? 1;
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $usd / $inr;
@@ -115,7 +116,7 @@ class Convert
     public static function usdToegp($amount)
     {
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencys') {
             $egp = Currency::where(['code' => 'EGP'])->first()->exchange_rate ?? 1;
             $usd = Currency::where('code', 'USD')->first()->exchange_rate ?? 1;
             $rate = $usd / $egp;

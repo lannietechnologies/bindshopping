@@ -25,13 +25,13 @@ $companyLogo = getWebConfig(name: 'company_web_logo');
                              class="width-auto h-50px">
                         {{ $companyName }}
                     </div>
-                @else
+                <!-- @else
                     {{ $companyName }}
-                @endif
+                @endif -->
             </div>
         </div>
         <div class="card-header mb-3 text-center">
-            {{ translate('Verify_your_email') }}
+            {{ translate('Hi There! Here is your Bind shopping OTP ') }}
         </div>
         <div class="card-body">
             <h1 class="text-info text-center">{{ $token }}</h1>

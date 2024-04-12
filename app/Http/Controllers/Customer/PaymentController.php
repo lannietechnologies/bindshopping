@@ -26,6 +26,7 @@ class PaymentController extends Controller
 {
     public function payment(Request $request)
     {
+      
         $user = Helpers::get_customer($request);
         $validator = Validator::make($request->all(), [
             'payment_method' => 'required',
@@ -159,7 +160,7 @@ class PaymentController extends Controller
         }
 
         $currency_model = Helpers::get_business_settings('currency_model');
-        if ($currency_model == 'multi_currency') {
+        if ($currency_model == 'multi_currencyf') {
             $currency_code = 'USD';
         } else {
             $default = BusinessSetting::where(['type' => 'system_default_currency'])->first()->value;
@@ -219,7 +220,7 @@ class PaymentController extends Controller
             payer_id: $customer=='offline' ? $request->customer_id : $customer['id'],
             receiver_id: '100',
             additional_data: $additional_data,
-            payment_amount: $payment_amount,
+            payment_amount:  Convert::usdTozar($payment_amount),
             external_redirect_link: $request->payment_platform == 'web' ? $request->external_redirect_link : null,
             attribute: 'order',
             attribute_id: idate("U")

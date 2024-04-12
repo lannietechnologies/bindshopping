@@ -79,7 +79,7 @@ if ($order->is_guest) {
             <td class="width-50 mt-1">
 
                 <div class="text-start mt-1">
-                    <strong class="text-capitalize">{{ translate('vendor_details') }}  </strong>
+                    <strong class="text-capitalize">Orderd From </strong>
                     <br>
                     @if ($order->seller_is == 'seller')
 
@@ -94,7 +94,7 @@ if ($order->is_guest) {
                     @else
                         <div class="d-flex align-items-center mt-1">
                         <span>
-                            {{ translate('inhouse_products') }}
+                        Bind Shopping
                         </span>
                         </div>
                     @endif

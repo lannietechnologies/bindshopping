@@ -85,7 +85,7 @@
                     @if($web_config['business_mode'] == 'multi' && $web_config['seller_registration'])
                         <li class="d-none d-xl-block">
                             <a href="{{route('shop.apply')}}" class="d-flex">
-                                <div class="fz-16 text-capitalize">{{ translate('Sell on Bind Shopping')}}</div>
+                                <div class="fz-16 text-capitalize">{{ translate('Become a supplier')}}</div>
                             </a>
                         </li>
                     @endif
@@ -303,7 +303,7 @@
                     </div>
                 @else
                     <div class="d-flex justify-content-center mb-5 pb-5 mt-auto px-4">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#loginModal" class="btn btn-primary w-100">
+                        <a href="" id="loginBtn" data-bs-toggle="modal" data-bs-target="#loginModal" class="btn btn-primary w-100">
                             {{ translate('login').'/'.translate('register')}}
                         </a>
                     </div>
@@ -561,3 +561,21 @@
         </div>
     </div>
 </header>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var loginBtn = document.getElementById('loginBtn');
+        var modal = new bootstrap.Modal(document.getElementById('loginModal'));
+
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.show();
+        });
+
+        // Check if user is not logged in, then show the modal
+        if(window.location.pathname === '/') {
+    @if(!auth('customer')->check())
+        modal.show();
+    @endif
+}
+    });
+</script>

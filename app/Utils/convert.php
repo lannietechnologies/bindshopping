@@ -100,6 +100,7 @@ class Convert
 
     public static function usdTozar($amount)
     {
+        
         $currency_model = Helpers::get_business_settings('currency_model');
         if ($currency_model == 'multi_currency') {
             $zar = Currency::where(['code' => 'ZAR'])->first()->exchange_rate ?? 1;

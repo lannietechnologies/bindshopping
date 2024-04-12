@@ -43,6 +43,11 @@ class PaystackController extends Controller
                     'cart_group_id' => $group_id
                 ];
                 $order_id = OrderManager::generate_order($data);
+                $user = Helpers::get_customer(null);
+                 Toastr::warning($user->phone);
+                $msg = "ORDER# ".$order_id." has beeen Confirmed on Bind shopping. You can use your order number to keep track of your order.\n Help line call or Whatsapp +27843808427";
+                $response = SMS_module::sendSms($user->phone, $msg);
+                
                 array_push($order_ids, $order_id);
             }
 

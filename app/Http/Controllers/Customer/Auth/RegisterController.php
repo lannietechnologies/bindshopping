@@ -74,6 +74,16 @@ class RegisterController extends Controller
         if ($request->referral_code){
             $refer_user = User::where(['referral_code' => $request->referral_code])->first();
         }
+        // $phone  = "";
+        // if($request['country']){
+        //     if($request['country']==1){
+        //         $numberWithoutLeadingZero = preg_replace('/^0+(?!$)/', '', $request['phone']);
+        //        $phone = "27".$numberWithoutLeadingZero;
+        //     }else{
+        //         $numberWithoutLeadingZero = preg_replace('/^0+(?!$)/', '', $request['phone']);
+        //         $phone = "263".$numberWithoutLeadingZero;
+        //     }
+        // }
 
         $user = User::create([
             'f_name' => $request['f_name'],

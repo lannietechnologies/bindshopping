@@ -17,10 +17,10 @@
                 <div class="mb-4">
                     <h2 class="mb-2">{{ translate('login') }}</h2>
                     <p class="text-muted">
-                        {{ translate('login_to_your_account').'.'.translate('don’t_have_account').'?' }}
+                        {{ translate('login_to_your_account').'. '.translate(' Not registered yet?').'?' }}
                         <span class="text-primary fw-bold text-capitalize" data-bs-toggle="modal"
                               data-bs-target="#registerModal">
-                            {{translate('sign_up')}}
+                            {{translate('Register here')}}
                         </span>
                     </p>
                 </div>
@@ -32,7 +32,7 @@
                         <input
                             name="user_id" id="si-email"
                             class="form-control" value="{{old('user_id')}}"
-                            placeholder="{{translate('enter_email_or_phone_number')}}" required
+                            placeholder="Like this: 27843808427" required
                         />
                     </div>
 

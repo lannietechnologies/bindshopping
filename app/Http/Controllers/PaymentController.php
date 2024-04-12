@@ -15,9 +15,10 @@ class PaymentController extends Controller
 
     public function make_payment(Request $request)
     {
+      
         $currency_model = Helpers::get_business_settings('currency_model');
         if ($currency_model == 'multi_currency') {
-            $currency_code = 'BDT';
+            $currency_code = 'ZAR';
         } else {
             $default = BusinessSetting::where(['type' => 'system_default_currency'])->first()->value;
             $currency_code = Currency::find($default)->code;
@@ -26,15 +27,15 @@ class PaymentController extends Controller
         $discount = session()->has('coupon_discount') ? session('coupon_discount') : 0;
         $value = CartManager::cart_grand_total() - $discount;
         $user = Helpers::get_customer();
-
+        Log::error('currency symbol: ' .  $currency_code);
         $this->create_payment([
             'unit_id' => '',
             'unit_name' => '',
             'customer_id' => $user['id'],
-            'payment_amount' => $value,
+            'payment_amount' => "1000",
             'callback' => '',
             'hook' => '',
-            'currency_code' => $currency_code,
+            'currency_code' => 'ZAR',
             'business_name' => '',
             'business_logo_url' => '',
         ]);

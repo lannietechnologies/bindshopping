@@ -28,10 +28,10 @@
                                    value="{{ $billing_input_by_customer }}">
                             @if($physical_product_view)
                                 <form method="post" id="address-form">
-                                    <h5 class="mb-3 text-capitalize">{{ translate('delivery_information_details') }}</h5>
+                                    <h5 class="mb-3 text-capitalize">{{ translate('Recipient information/Delivery Information') }}</h5>
                                     <div class="d-flex flex-wrap justify-content-between gap-3 mb-3">
                                         <div class="d-flex flex-wrap gap-3 align-items-center">
-                                            <h6 class="text-capitalize">{{ translate('delivery_address') }}</h6>
+                                            <h6 class="text-capitalize">{{ translate('Enter new Details') }}</h6>
                                         </div>
                                         <div class="d-flex flex-wrap gap-3 align-items-center">
                                             <a href="javascript:" type="button" data-bs-toggle="modal"
@@ -41,7 +41,7 @@
                                             @if(auth('customer')->check())
                                                 <a href="javascript:" type="button" data-bs-toggle="modal"
                                                    data-bs-target="#shippingSavedAddressModal"
-                                                   class="btn-link text-primary text-capitalize">{{ translate('select_from_saved') }}</a>
+                                                   class="btn-link text-primary text-capitalize">{{ translate('Saved Recipient') }}</a>
                                             @endif
                                             <div class="modal fade" id="shippingMapModal" tabindex="-1"
                                                  aria-hidden="true">
@@ -183,7 +183,7 @@
                                                             class="col-sm-@if(auth('customer')->check()) '6' @else '12' @endif">
                                                             <div class="form-group mb-3">
                                                                 <label for="name"
-                                                                       class="text-capitalize">{{ translate('contact_person_name')}}</label>
+                                                                       class="text-capitalize">{{ translate('Full Name (As per ID)')}}</label>
                                                                 <input type="text" name="contact_person_name" id="name"
                                                                        class="form-control"
                                                                        placeholder="{{ translate('ex') }}: {{translate('Jhon_Doe')}}" {{$shipping_addresses->count()==0?'required':''}}>
@@ -191,7 +191,7 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="form-group mb-3">
-                                                                <label for="phone">{{ translate('phone') }}</label>
+                                                                <label for="phone">{{ translate('Full Phone number eg:00263778722247') }}</label>
                                                                 <input type="tel" name="phone" id="phoneNumber"
                                                                        class="form-control"
                                                                        placeholder="{{ translate('ex') }}: {{translate('+8801000000000')}}" {{$shipping_addresses->count()==0?'required':''}}>
@@ -241,7 +241,7 @@
                                                             <div class="form-group mb-3">
                                                                 <label for="city">{{ translate('city') }}</label>
                                                                 <input type="text" name="city" id="city"
-                                                                       placeholder="{{ translate('ex') }}: {{translate('dhaka')}}"
+                                                                       placeholder="{{ translate('ex') }}: {{translate('Harare')}}"
                                                                        class="form-control" {{$shipping_addresses->count()==0?'required':''}}>
                                                             </div>
                                                         </div>
@@ -487,7 +487,7 @@
                                                                     class="col-sm-@if(auth('customer')->check()) '6' @else '12' @endif">
                                                                     <div class="form-group mb-3">
                                                                         <label for="billing-contact-person-name"
-                                                                               class="text-capitalize">{{ translate('contact_person_name')}}</label>
+                                                                               class="text-capitalize">{{ translate('Full Name (As per ID)')}}</label>
                                                                         <input type="text"
                                                                                name="billing_contact_person_name"
                                                                                id="billing-contact-person-name"
@@ -498,7 +498,7 @@
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group mb-3">
                                                                         <label
-                                                                            for="billing_phone">{{ translate('phone') }}</label>
+                                                                            for="billing_phone">{{ translate('Phone Ex:00263778722247') }}</label>
                                                                         <input type="tel" name="billing_phone"
                                                                                id="billing-phone" class="form-control"
                                                                                placeholder="{{ translate('ex') }}: {{translate('+88 01000000000')}}" {{$billing_addresses->count()==0?'required':''}}>

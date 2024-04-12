@@ -137,7 +137,7 @@
                                                                         @endif
 
                                                                         <div class="easyzoom easyzoom--overlay">
-                                                                            <a href="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+                                                                            <a href="{{getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
                                                                                 <img class="dark-support rounded" alt=""
                                                                                     src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
                                                                             </a>
@@ -620,7 +620,7 @@
                                             <div class="avatar size-4-375rem">
                                                 <img class="img-fit dark-support rounded img-fluid overflow-hidden"
                                                     alt=""
-                                                    src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$item['thumbnail'], type: 'product') }}">
+                                                    src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$item['thumbnail'], type: 'product' )}}">
                                             </div>
                                             @php($itemReview = getOverallRating($item->reviews))
                                             <div class="media-body d-flex flex-column gap-2">

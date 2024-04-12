@@ -18,6 +18,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProductListController extends Controller
 {
@@ -206,17 +207,47 @@ class ProductListController extends Controller
                 return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
             }
         ]);
+        Log::info($porduct_data->toSql());
 
         $product_ids = [];
         if ($request['data_from'] == 'category') {
             $products = $porduct_data->get();
+            
             $product_ids = [];
             foreach ($products as $product) {
-                foreach (json_decode($product['category_ids'], true) as $category) {
-                    if ($category['id'] == $request['id']) {
-                        array_push($product_ids, $product['id']);
+                Log::info($product['id']);
+
+               // Log::info(json_decode($product['category_ids'], true));
+                $categoryIds = $product['category_ids'];
+                if ($categoryIds !== null) {
+                    try {
+                        $decodedCategoryIds = json_decode($categoryIds, true);
+                
+                        if (json_last_error() === JSON_ERROR_NONE) {
+                            // JSON decoding was successful
+                            Log::info($decodedCategoryIds);
+                            foreach (json_decode($product['category_ids'], true) as $category) {
+                                if ($category['id'] == $request['id']) {
+                                    array_push($product_ids, $product['id']);
+                                }
+                            }
+                        } else {
+                            // Handle JSON decoding error
+                            Log::error('Error decoding JSON: ' . json_last_error_msg());
+                        }
+                    } catch (Exception $e) {
+                        // Handle other exceptions that might occur during decoding
+                        Log::error('Exception decoding JSON: ' . $e->getMessage());
                     }
+                } else {
+                    // Handle the case where $categoryIds is null
+                    Log::info('category_ids is null');
                 }
+
+
+
+
+              
             }
             $query = $porduct_data->whereIn('id', $product_ids);
         }

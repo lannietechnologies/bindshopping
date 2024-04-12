@@ -68,6 +68,31 @@ class SMS_module
         }
         return $response;
     }
+    public static function sendSms($receiver,$msg)
+    {
+        $config = self::get_settings('twilio_sms');
+        $response = 'error';
+        if (isset($config) && $config['status'] == 1) {
+            $message = $msg;
+            $sid = $config['sid'];
+            $token = $config['token'];
+            try {
+                $twilio = new Client($sid, $token);
+                $twilio->messages
+                    ->create($receiver, // to
+                        array(
+                            "messagingServiceSid" => $config['messaging_service_sid'],
+                            "body" => $message
+                        )
+                    );
+                $response = 'success';
+            } catch (\Exception $exception) {
+                $response = 'error';
+            }
+        }
+        return $response;
+    }
+
 
     public static function nexmo($receiver, $otp)
     {

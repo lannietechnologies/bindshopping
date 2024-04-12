@@ -21,7 +21,7 @@
                 <div class="mb-4">
                     <h2 class="mb-2">{{ translate('sign_up') }}</h2>
                     <p class="text-muted">
-                        {{ translate('Already registerd? ') }} {{ translate('') }}?
+                        {{ translate('Already registerd? ') }}  
                         <span
                             class="text-primary fw-bold"
                             data-bs-toggle="modal"
@@ -35,26 +35,6 @@
                     @csrf
                     <div class="custom-scrollbar height-45vh">
                         <div class="row">
-                            <!-- <div class="col-sm-6">
-                                <div class="form-group mb-4">
-                                    <label class="text-capitalize" for="f_name"> {{ translate('Country') }}</label>
-                                    <select id="exampleFormControlSelect1" name="country"
-                                                class="form-control" required>
-                                            <option value="1" selected  >
-                                                {{ translate('South Africa') }}
-                                            </option> 
-                                            <option value="2"    >
-                                                {{ translate('Zimbabwe') }}
-                                            </option> 
-                                            
-                                        </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group mb-4">
-                                     
-                                </div>
-                            </div> -->
                             <div class="col-sm-6">
                                 <div class="form-group mb-4">
                                     <label class="text-capitalize" for="f_name"> {{ translate('first_name') }}</label>
@@ -107,7 +87,7 @@
                                         value="{{old('phone')}}"
                                         name="phone"
                                         class="form-control"
-                                        placeholder="Like this: 0843808427"
+                                        placeholder="Like this: 27843808427"
                                         required
                                     />
                                 </div>
@@ -147,7 +127,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             @if ($web_config['ref_earning_status'])
                                 <div class="col-sm-12">
                                     <div class="mb-4">

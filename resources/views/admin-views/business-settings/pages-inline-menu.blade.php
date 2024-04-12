@@ -18,13 +18,6 @@
                 href="{{route('admin.business-settings.about-us')}}">{{translate('about_Us')}}</a></li>
         <li class="{{ Request::is('admin/helpTopic/'.\App\Enums\ViewPaths\Admin\HelpTopic::LIST[URI]) ?'active':'' }}">
             <a href="{{route('admin.helpTopic.list')}}">{{translate('FAQ')}}</a></li>
-
-        <!-- @if(getWebConfig(name: 'react_setup')['status'] || theme_root_path() == 'theme_fashion')
-            <li class="{{ Request::is('admin/business-settings/'.FeaturesSection::VIEW[URI]) ?'active':'' }}">
-                <a href="{{route('admin.business-settings.features-section')}}">{{translate('features_Section')}}</a>
-            </li>
-        @endif -->
-
         @if(theme_root_path() == 'default')
             <li class="{{ Request::is('admin/business-settings/'.FeaturesSection::COMPANY_RELIABILITY[URI]) ?'active':'' }}">
                 <a href="{{route('admin.business-settings.company-reliability')}}"

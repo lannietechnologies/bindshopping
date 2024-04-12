@@ -392,6 +392,28 @@ class Helpers
 
         return Helpers::set_symbol(round($amount * $rate, 2));
     }
+    public static function currency_converter2($amount)
+    {
+        $currency_model = Helpers::get_business_settings('currency_model');
+        if ($currency_model == 'multi_currency') {
+            if (session()->has('usd')) {
+                $usd = session('usd');
+            } else {
+                $usd = Currency::where(['code' => 'USD'])->first()->exchange_rate;
+                session()->put('usd', $usd);
+            }
+            $my_currency = \session('currency_exchange_rate');
+            $rate = $my_currency / $usd;
+        } else {
+            $rate = 1;
+        }
+
+        $let  = round($amount * $rate, 2);
+        $usd = Currency::where(['code' => 'ZAR2'])->first()->exchange_rate;
+        //$amnt = Helpers::currency_converter($amount);
+
+        return  round(floatval($let) *floatval($usd), 2);
+    }
 
     public static function language_load()
     {

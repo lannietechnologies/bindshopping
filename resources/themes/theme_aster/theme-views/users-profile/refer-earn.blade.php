@@ -41,7 +41,7 @@
                                                 <h4 class="share-icons-heading mt-3 text-capitalize">{{ translate('share_via') }}</h4>
                                                 <div class="d-flex justify-content-center align-items-center share-on-social">
                                                     @php
-                                                        $text = "Greetings,6Valley is the best e-commerce platform in the country.If you are new to this website dont forget to use " . $customer_detail->referral_code . " " ."as the referral code while sign up into 6valley.";
+                                                        $text = "Greetings, Bind Shopping is the best e-commerce platform you  can use to send groceries and goods to Zimbabwe with cheaper door to door deliveries .Join Bind Shopping and please use this code " . $customer_detail->referral_code . " " ."as the referral code while sign up to Bind Shopping.";
                                                         $link = url('/');
                                                     @endphp
                                                     <a href="https://api.whatsapp.com/send?text={{$text}}.{{$link}}" target="_blank">

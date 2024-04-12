@@ -48,7 +48,7 @@ class SubCategoryController extends BaseController
         $parentCategories = $this->categoryRepo->getListWhere(
             searchValue: $request->get('searchValue'),
             filters: ['position' => 0],
-            dataLimit: getWebConfig(name: 'pagination_limit'));
+            dataLimit: 100);
         $languages = getWebConfig(name: 'pnc_language') ?? null;
         $defaultLanguage = $languages[0];
 

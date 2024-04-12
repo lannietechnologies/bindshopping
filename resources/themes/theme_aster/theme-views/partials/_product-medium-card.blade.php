@@ -41,7 +41,7 @@
         </div>
 
         <div>
-            <img src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'product') }}"
+            <img src="{{getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'product') }}"
                  loading="lazy" class="img-fit dark-support rounded" alt="">
         </div>
     </div>

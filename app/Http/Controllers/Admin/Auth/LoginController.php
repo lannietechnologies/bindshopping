@@ -65,26 +65,26 @@ class LoginController extends BaseController
 
     public function login(LoginRequest $request): RedirectResponse
     {
-        $recaptcha = getWebConfig(name: 'recaptcha');
-        if (isset($recaptcha) && $recaptcha['status'] == 1) {
-            $request->validate([
-                'g-recaptcha-response' => [
-                    function ($attribute, $value, $fail) {
-                        $secretKey = getWebConfig(name: 'recaptcha')['secret_key'];
-                        $response = $value;
-                        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $response;
-                        $response = Http::get($url);
-                        $response = $response->json();
-                        if (!isset($response['success']) || !$response['success']) {
-                            $fail(translate('ReCAPTCHA_Failed'));
-                        }
-                    },
-                ],
-            ]);
-        } else if(strtolower(session(SessionKey::ADMIN_RECAPTCHA_KEY)) != strtolower($request['default_captcha_value'])) {
-            Toastr::error(translate('ReCAPTCHA_Failed'));
-            return back();
-        }
+        // $recaptcha = getWebConfig(name: 'recaptcha');
+        // if (isset($recaptcha) && $recaptcha['status'] == 001) {
+        //     $request->validate([
+        //         'g-recaptcha-response' => [
+        //             function ($attribute, $value, $fail) {
+        //                 $secretKey = getWebConfig(name: 'recaptcha')['secret_key'];
+        //                 $response = $value;
+        //                 $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . $secretKey . '&response=' . $response;
+        //                 $response = Http::get($url);
+        //                 $response = $response->json();
+        //                 if (!isset($response['success']) || !$response['success']) {
+        //                     $fail(translate('ReCAPTCHA_Failed'));
+        //                 }
+        //             },
+        //         ],
+        //     ]);
+        // } else if(strtolower(session(SessionKey::ADMIN_RECAPTCHA_KEY)) != strtolower($request['default_captcha_value'])) {
+        //     Toastr::error(translate('ReCAPTCHA_Failed'));
+        //     return back();
+        // }
 
         $admin = $this->admin->where('email', $request['email'])->first();
 

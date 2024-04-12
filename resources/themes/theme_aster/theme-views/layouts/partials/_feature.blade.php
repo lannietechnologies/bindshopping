@@ -8,8 +8,8 @@
                             <img src="{{theme_asset('assets/img/icons/f1.png')}}" alt="{{translate('image')}}">
                         </div>
                         <div class="media-body">
-                            <h5 class="mb-2 text-capitalize">{{translate('first_shipping')}}</h5>
-                            <div class="fs-12">{{translate('first_shipping_all_across_the_country')}}</div>
+                            <h5 class="mb-2 text-capitalize">Send Groceries</h5>
+                            <div class="fs-12">{{translate('We deliver groceries accross Zimbabwe')}}</div>
                         </div>
                     </div>
                 </div>
@@ -19,8 +19,8 @@
                             <img src="{{theme_asset('assets/img/icons/f2.png')}}" alt="{{translate('image')}}">
                         </div>
                         <div class="media-body">
-                            <h5 class="mb-2 text-capitalize">{{translate('authentic_products')}}</h5>
-                            <div class="fs-12">{{'100%'.' '.translate('authentic_products')}}</div>
+                            <h5 class="mb-2 text-capitalize">Variety</h5>
+                            <div class="fs-12">{{'100%'.' '.translate('Over 20k products to choose from')}}</div>
                         </div>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                             <img src="{{theme_asset('assets/img/icons/f3.png')}}" alt="{{translate('image')}}">
                         </div>
                         <div class="media-body">
-                            <h5 class="mb-2 text-capitalize">{{'100%'.translate('secure_payment')}}</h5>
-                            <div class="fs-12 text-capitalize">{{translate('we_ensure_secure_transactions')}}</div>
+                            <h5 class="mb-2 text-capitalize">Multiple Payment Options</h5>
+                            <div class="fs-12 text-capitalize">{{translate('Pay online or offline 100% Secured')}}</div>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="media-body">
                             <h5 class="mb-2 text-capitalize">{{'24/7'.' '.translate('support_center')}}</h5>
-                            <div class="fs-12 text-capitalize">{{translate('we_ensure_quality_support')}}</div>
+                            <div class="fs-12 text-capitalize">{{translate('Whatsapp/call us +27843808427')}}</div>
                         </div>
                     </div>
                 </div>

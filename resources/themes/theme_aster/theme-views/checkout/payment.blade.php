@@ -25,7 +25,7 @@
                                                 class="bi bi-check2"></i></span> {{ translate('payment') }}</li>
                                 </ul>
                             </div>
-                            <h5 class="mb-4 text-capitalize">{{ translate('payment_information') }}</h5>
+                            <h5 class="mb-4 text-capitalize">{{ translate('payment_information')  }}</h5>
                             <div class="mb-30">
                                 <ul class="option-select-btn flex-wrap gap-3">
                                     @if(!$cod_not_show && $cash_on_delivery['status'])
@@ -54,7 +54,7 @@
                                                         <img width="30"
                                                              src="{{ theme_asset('assets/img/icons/wallet.png') }}"
                                                              class="dark-support" alt="">
-                                                        <span>{{ translate('wallet') }}</span>
+                                                        <span>{{ translate('Pay with wallet') }}</span>
                                                     </button>
                                                 </label>
                                             </li>
@@ -66,7 +66,7 @@
                                                 <img width="30"
                                                      src="{{ theme_asset('assets/img/icons/degital-payment.png') }}"
                                                      class="dark-support" alt="">
-                                                <span>{{ translate('Digital_Payment') }}</span>
+                                                <span>{{ translate('Card/Offline Payment') }}</span>
                                             </span>
                                             </label>
                                         </li>
@@ -209,7 +209,19 @@
                                                                     src="{{ theme_asset('assets/img/offline-payments.png') }}"
                                                                     alt="">
                                                                 <p class="py-2">
-                                                                    {{ translate('pay_your_bill_using_any_of_the_payment_method_below_and_input_the_required_information_in_the_form') }}
+                                                                    {{ translate('Please select one of the follwing offline ways to pay') }}
+                                                                </p>
+                                                            </div>
+                                                            <div class="text-center px-5">
+                                                                 
+                                                                <p class="py-2">
+                                                                    {{ translate('Nb : Once Done with the deposit please Send your proof of deposit via Whatsapp to (+27843808427), a confirmation sms will come to your registered phone number with in 10 minutes') }}
+                                                                </p>
+                                                            </div>
+                                                            <div class="text-center px-5">
+                                                                 
+                                                                <p class="py-2">
+                                                                    {{ translate('Very important : Please make sure you enter the correct amount. if your amount is not a round figure please deposit to the nearest 10. For example if your total is R2391 you deposit R2400 and R7 will be added to your wallet and can be used un your next purchase.') }}
                                                                 </p>
                                                             </div>
 
