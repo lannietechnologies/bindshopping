@@ -67,6 +67,8 @@
                                                    placeholder="{{ translate('email_address') }}">
                                         </div>
                                     </div>
+                                    <input style="display:none; visibility:hidden" name="bfc"  type="text"  class="form-control"  
+                                                   >
                                     <div class="col-sm-6">
                                         <div class="form-group mb-4">
                                             <label for="message">{{ translate('contact_number') }}</label>
@@ -135,18 +137,18 @@
                 defer></script>
         <script type="text/javascript">
             "use strict";
-            var onloadCallback = function () {
-                grecaptcha.render('recaptcha_element_contact', {
-                    'sitekey': '{{ getWebConfig(name: 'recaptcha')['site_key'] }}'
-                });
-            };
-            $("#get-response").on('submit', function (e) {
-                let response = grecaptcha.getResponse();
-                if (response.length === 0) {
-                    e.preventDefault();
-                    toastr.error("{{ translate('please_check_the_recaptcha') }}");
-                }
-            });
+            // var onloadCallback = function () {
+            //     grecaptcha.render('recaptcha_element_contact', {
+            //         'sitekey': '{{ getWebConfig(name: 'recaptcha')['site_key'] }}'
+            //     });
+            // };
+            // $("#get-response").on('submit', function (e) {
+            //     // let response = grecaptcha.getResponse();
+            //     // if (response.length === 0) {
+            //     //     e.preventDefault();
+            //     //     toastr.error("{{ translate('please_check_the_recaptcha') }}");
+            //     // }
+            // });
         </script>
     @else
         <script type="text/javascript">

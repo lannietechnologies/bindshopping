@@ -563,7 +563,7 @@ class WebController extends Controller
                 ];
                 $order_id = OrderManager::generate_order($data);
                 $user = Helpers::get_customer(null);
-               Toastr::warning($user->phone);
+                //Toastr::warning($user->phone);
                 $msg = "ORDER# ".$order_id." has beeen Confirmed on Bind shopping. You can use your order number to keep track of your order.\n Help line call or Whatsapp +27843808427";
                 $response = SMS_module::sendSms($user->phone, $msg);
                 array_push($order_ids, $order_id);
@@ -1080,6 +1080,7 @@ class WebController extends Controller
             'mobile_number' => 'required',
             'subject' => 'required',
             'message' => 'required',
+            'name' => 'required|regex:/^[a-zA-Z\s\-\'\.]+$/',
             'email' => 'email',
         ], [
             'mobile_number.required' => 'Mobile Number is Empty!',

@@ -34,6 +34,8 @@
                       enctype="multipart/form-data">
                     @csrf
                     <div class="custom-scrollbar height-45vh">
+                    <input style="display:none; visibility:hidden" name="bfc"  type="text"  class="form-control"  
+                                                   >
                         <div class="row">
                             <!-- <div class="col-sm-6">
                                 <div class="form-group mb-4">
@@ -264,7 +266,7 @@
             @if($web_config['recaptcha']['status'] == '1')
                 recaptcha = recaptcha_f();
             @endif
-            if (recaptcha === true) {
+            if (recaptcha === true) { 
                 $.ajax({
                     type: 'POST',
                     url: $(this).attr('action'),

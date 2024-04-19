@@ -37,8 +37,9 @@ class RegisterController extends Controller
 
     public function submit(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
-            'f_name' => 'required',
+            'f_name' => 'required|regex:/^[a-zA-Z\s\\-\\\'\\.]+$/i',
             'email' => 'required|email|unique:users',
             'phone' => 'unique:users',
             'password' => 'required|min:8|same:con_password'
@@ -47,7 +48,7 @@ class RegisterController extends Controller
             'email.unique' => translate('email_already_has_been_taken'),
             'phone.unique' => translate('phone_number_already_has_been_taken'),
         ]);
-
+      
         if($request->ajax()) {
             if ($validator->fails()) {
                 return response()->json([
@@ -84,7 +85,10 @@ class RegisterController extends Controller
         //         $phone = "263".$numberWithoutLeadingZero;
         //     }
         // }
-
+        if(isset($request->bfs)&& !empty($request->bfs)){
+            Toastr::success(translate('Invalid Submission'));
+            return back();
+        }else{
         $user = User::create([
             'f_name' => $request['f_name'],
             'l_name' => $request['l_name'],
@@ -95,7 +99,7 @@ class RegisterController extends Controller
             'referral_code' => Helpers::generate_referer_code(),
             'referred_by' => (isset($refer_user) && $refer_user) ? $refer_user->id : null,
         ]);
-
+    }
         $phone_verification = Helpers::get_business_settings('phone_verification');
         $email_verification = Helpers::get_business_settings('email_verification');
 
